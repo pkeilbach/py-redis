@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  local_redis:
+    container_name: local_redis
+    image: redis:alpine
+    command: redis-server
+    restart: always
+    ports:
+    - 6379:6379

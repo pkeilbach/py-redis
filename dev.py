@@ -1,11 +1,3 @@
-# Py-Redis
-
-A convenience wrapper for the [official Python Redis package](https://pypi.org/project/redis/). 
-Supports the Python context manager protocol and takes care of (de-)serializing data to JSON 
-as well as helper methods to work on multiple keys.
-
-```python
-
 from pyredis import RedisConnection
 from pprint import pprint
 
@@ -55,6 +47,3 @@ with RedisConnection(**redis_args) as my_redis:
     keys = my_redis.set_dict(data)
     print(my_redis.get('a'))
     print(my_redis.get(keys[1]))
-
-
-```
