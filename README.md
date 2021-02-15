@@ -1,7 +1,7 @@
 # Py-Redis
 
 A convenience wrapper for the [official Python Redis package](https://pypi.org/project/redis/). 
-Supports the Python context manager protocol and takes care of (de-)serializing data to JSON 
+Supports the Python context manager protocol and takes care of (de-)serializing data to JSON, 
 as well as helper methods to work on multiple keys.
 
 ## Object Creation
