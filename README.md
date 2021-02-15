@@ -70,7 +70,8 @@ with RedisConnection(**redis_args) as my_redis:
 ## Fallback
 
 ```python
-# you can always work directly on the redis.Redis() object, as you would with the official package,
+# you can always work directly on the redis.Redis() object, 
+# as you would with the official package,
 # by using the RedisConnection.R attribute
 with RedisConnection(**redis_args) as my_redis:
     print('access redis client through object...')
