@@ -1,13 +1,20 @@
 from pyredis import RedisConnection
 from pprint import pprint
 
+# 1. Object Creation
+
+# pass everything you would pass to redis.Redis()
 redis_args = {
-    # pass everything you would pass to redis.Redis()
     'host': 'localhost',
     # 'password': 'my$ecureRed1s',
     # 'port': 1234,
 }
 
+with RedisConnection(**redis_args) as my_redis:
+    my_redis.set('key', 'value')
+
+
+# 2. Redis Get and Set
 # redis set
 with RedisConnection(**redis_args) as my_redis:
     my_redis.set('a_sting', 'my_sting value')
@@ -20,6 +27,8 @@ with RedisConnection(**redis_args) as my_redis:
     # data is already converted to a dict
     print(type(data))
 
+
+# 3. Handle Lists and Dicts
 # get multiple keys / data
 with RedisConnection(**redis_args) as my_redis:
     # get all keys that start with a_
@@ -34,12 +43,6 @@ with RedisConnection(**redis_args) as my_redis:
     data = my_redis.get_keys('a_')
     pprint(data)
 
-# or work directly on the redis.Redis() object as you would with the official package
-# by using the RedisConnection.R attribute
-with RedisConnection(**redis_args) as my_redis:
-    print('access redis client through object...')
-    print(my_redis.R.get('a_dict'))
-
 # set all entries of a dictionary to redis
 data = {'a': 12, 'b': 'myvalue'}
 with RedisConnection(**redis_args) as my_redis:
@@ -47,3 +50,11 @@ with RedisConnection(**redis_args) as my_redis:
     keys = my_redis.set_dict(data)
     print(my_redis.get('a'))
     print(my_redis.get(keys[1]))
+
+
+# 4. Fallback
+# or work directly on the redis.Redis() object as you would with the official package
+# by using the RedisConnection.R attribute
+with RedisConnection(**redis_args) as my_redis:
+    print('access redis client through object...')
+    print(my_redis.R.get('a_dict'))
