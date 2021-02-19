@@ -6,7 +6,7 @@ from pprint import pprint
 # pass everything you would pass to redis.Redis()
 redis_args = {
     'host': 'localhost',
-    # 'password': 'my$ecureRed1s',
+    # 'password': 'redis1234',
     # 'port': 1234,
 }
 
